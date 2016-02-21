@@ -59,7 +59,7 @@ void mpeClientTCP::start() {
 		ofAddListener(ofEvents().update, this, &mpeClientTCP::retryConnectionLoop);
     }
 	else{
-		startThread(true, false);  // blocking, verbose
+		startThread(true);  // blocking, verbose
 		out("TCP connection bound on port " + ofToString(serverPort));
 	}
 }
