@@ -59,7 +59,7 @@ void mpeClientTCP::start() {
 		ofAddListener(ofEvents().update, this, &mpeClientTCP::retryConnectionLoop);
     }
 	else{
-		startThread(true, false);  // blocking, verbose
+		startThread();  // blocking, verbose
 		out("TCP connection bound on port " + ofToString(serverPort));
 	}
 }
@@ -71,7 +71,7 @@ void mpeClientTCP::retryConnectionLoop(ofEventArgs& e)
 		if(tcpClient.setup(hostName, serverPort)) {
 			//cout << "retry succeeded, removing listener!" << endl;
 			ofRemoveListener(ofEvents().update, this, &mpeClientTCP::retryConnectionLoop);
-			startThread(true, false);  // blocking, verbose
+			startThread();  // blocking, verbose
 		}
 		lastConnectionAttempt = now;
 	}

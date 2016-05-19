@@ -75,7 +75,7 @@ void mpeServerTCP::setup(int fps, int port, int numClients)
 		connections.push_back(c);
 	}
 
-	startThread(true, false);
+	startThread(true);
 
 	shouldTriggerFrame = false;
 	allconnected = false;
